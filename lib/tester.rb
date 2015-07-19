@@ -9,25 +9,42 @@ class Tester
   E3 = Event[:baz]
   BZ = Event[:buz]
 
-  def benchmark
-    classes = [
-        HardcodeTestbed,
-        SendTestbed,
-        SendTableTestbed,
-        BindTableTestbed,
-        CodeGenTestbed,
-        IfCodeGenTestbed,
-        LambdaTableTestbed,
-    ]
+  CLASSES = [
+    HardcodeTestbed,
+    SendTestbed,
+    SendTableTestbed,
+    BindTableTestbed,
+    CodeGenTestbed,
+    IfCodeGenTestbed,
+    LambdaTableTestbed,
+  ]
 
+  def benchmark
     puts "ruby: #{RUBY_VERSION}"
     puts
 
     Benchmark.ips do |x|
-      classes.each do |klass|
+      CLASSES.each do |klass|
         x.report(klass.name) { |times| do_test(klass, times) }
       end
       x.compare!
+    end
+  end
+
+  def profile
+    require 'ruby-prof'
+
+    CLASSES.each do |klass|
+      puts
+      puts ">>>>>>>>>> #{klass.name} <<<<<<<<<<"
+      puts
+
+      result = RubyProf.profile do
+        do_test(klass, 200_000)
+      end
+
+      printer = RubyProf::FlatPrinter.new(result)
+      printer.print(STDOUT)
     end
   end
 
@@ -48,5 +65,9 @@ class Tester
 end
 
 if __FILE__ == $0
-  Tester.new.benchmark
+  if ARGV[0] == "-p"
+    Tester.new.profile
+  else
+    Tester.new.benchmark
+  end
 end
