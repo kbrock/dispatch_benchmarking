@@ -13,10 +13,11 @@ class IfCodeGenTestbed < Base
 
   def self.regenerate_dispatch_method
     dispatch_table = handler_methods.map { |event_name|
-      "event.name.equal?(:#{event_name}) then handle_#{event_name}(event)"
+      "event_name.equal?(:#{event_name}) then handle_#{event_name}(event)"
     }.join("\nelsif ")
     class_eval %{
       def call(event)
+        event_name = event.name
         if #{dispatch_table}
         end
       end
