@@ -1,28 +1,27 @@
 ruby: 2.2.2
 
 Calculating -------------------------------------
-     HardcodeTestbed    46.020k i/100ms
-         SendTestbed    26.281k i/100ms
-    SendTableTestbed    37.722k i/100ms
-    BindTableTestbed    22.909k i/100ms
-      CodeGenTestbed    45.820k i/100ms
-    IfCodeGenTestbed    41.648k i/100ms
-  LambdaTableTestbed    37.872k i/100ms
+     HardcodeTestbed    79.629k i/100ms
+         SendTestbed    33.620k i/100ms
+    SendTableTestbed    55.588k i/100ms
+    BindTableTestbed    27.671k i/100ms
+      CodeGenTestbed    78.536k i/100ms
+    IfCodeGenTestbed    70.408k i/100ms
+  LambdaTableTestbed    57.158k i/100ms
 -------------------------------------------------
-     HardcodeTestbed    655.728k (± 2.7%) i/s -      3.313M
-         SendTestbed    322.260k (± 2.5%) i/s -      1.629M
-    SendTableTestbed    505.464k (± 3.0%) i/s -      2.527M
-    BindTableTestbed    264.811k (± 3.9%) i/s -      1.329M
-      CodeGenTestbed    607.975k (± 8.0%) i/s -      3.024M
-    IfCodeGenTestbed    529.128k (± 4.1%) i/s -      2.665M
-  LambdaTableTestbed    457.260k (± 3.9%) i/s -      2.310M
+     HardcodeTestbed      2.562M (± 5.4%) i/s -     12.820M
+         SendTestbed    509.082k (± 3.6%) i/s -      2.555M
+    SendTableTestbed      1.151M (± 4.5%) i/s -      5.781M
+    BindTableTestbed    370.992k (± 5.0%) i/s -      1.854M
+      CodeGenTestbed      2.614M (± 5.4%) i/s -     13.037M
+    IfCodeGenTestbed      1.820M (± 4.8%) i/s -      9.083M
+  LambdaTableTestbed      1.191M (± 4.6%) i/s -      5.944M
 
 Comparison:
-     HardcodeTestbed:   655728.1 i/s
-      CodeGenTestbed:   607975.1 i/s - 1.08x slower
-    IfCodeGenTestbed:   529128.3 i/s - 1.24x slower
-    SendTableTestbed:   505464.1 i/s - 1.30x slower
-  LambdaTableTestbed:   457259.7 i/s - 1.43x slower
-         SendTestbed:   322259.7 i/s - 2.03x slower
-    BindTableTestbed:   264810.6 i/s - 2.48x slower
-
+      CodeGenTestbed:  2613945.2 i/s
+     HardcodeTestbed:  2562169.2 i/s - 1.02x slower
+    IfCodeGenTestbed:  1819621.6 i/s - 1.44x slower
+  LambdaTableTestbed:  1191140.0 i/s - 2.19x slower
+    SendTableTestbed:  1151137.3 i/s - 2.27x slower
+         SendTestbed:   509082.5 i/s - 5.13x slower
+    BindTableTestbed:   370992.3 i/s - 7.05x slower
