@@ -10,13 +10,13 @@ class Tester
   BZ = Event[:buz]
 
   CLASSES = [
-    HardcodeTestbed,
-    SendTestbed,
-    SendTableTestbed,
-    BindTableTestbed,
     CodeGenTestbed,
+    HardcodeTestbed,
     IfCodeGenTestbed,
+    SendTableTestbed,
     LambdaTableTestbed,
+    SendTestbed,
+    BindTableTestbed,
   ]
 
   def benchmark
