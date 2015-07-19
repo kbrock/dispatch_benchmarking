@@ -1,7 +1,8 @@
-class TestBed
-  attr_reader :event_log
-
-  def initialize
-    @event_log = []
-  end
-end
+require 'testbed/base'
+require 'testbed/hardcode_testbed'
+require 'testbed/send_testbed'
+require 'testbed/send_table_testbed'
+require 'testbed/bind_table_testbed'
+require 'testbed/code_gen_testbed'
+require 'testbed/if_code_gen_testbed'
+require 'testbed/lambda_table_testbed'

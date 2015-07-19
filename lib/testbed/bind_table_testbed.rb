@@ -1,7 +1,7 @@
-class SendTableTestbed < TestBed
+class BindTableTestbed < Base
   def self.method_added(method_name)
     if method_name.to_s =~ /\Ahandle_(.+)\z/
-      handler_methods[$1.to_sym] = method_name.to_sym
+      handler_methods[$1.to_sym] = instance_method(method_name)
     end
     super
   end
@@ -12,7 +12,7 @@ class SendTableTestbed < TestBed
 
   def call(event)
     if (handler_method = self.class.handler_methods[event.name])
-      __send__(handler_method, event)
+      handler_method.bind(self).call(event)
     end
   end
 

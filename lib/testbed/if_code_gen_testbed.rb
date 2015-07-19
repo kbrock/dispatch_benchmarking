@@ -1,4 +1,4 @@
-class CodeGenTestbed < TestBed
+class IfCodeGenTestbed < Base
   def self.method_added(method_name)
     if method_name.to_s =~ /\Ahandle_(.+)\z/
       handler_methods << $1
@@ -11,22 +11,13 @@ class CodeGenTestbed < TestBed
     @handler_methods ||= []
   end
 
-  # final code will look like:
-  # def call(event)
-  #   case event.name
-  #   when :foo then handle_foo(event)
-  #   when :bar then handle_bar(event)
-  #   when :baz then handle_baz(event)
-  #   end
-  # end
   def self.regenerate_dispatch_method
     dispatch_table = handler_methods.map { |event_name|
-      "when :#{event_name} then handle_#{event_name}(event)"
-    }.join("\n")
+      "event.name.equal?(:#{event_name}) then handle_#{event_name}(event)"
+    }.join("\nelsif ")
     class_eval %{
       def call(event)
-        case event.name
-        #{dispatch_table}
+        if #{dispatch_table}
         end
       end
     }

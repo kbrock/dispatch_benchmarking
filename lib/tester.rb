@@ -1,12 +1,5 @@
 require 'event'
 require 'testbed'
-require 'hardcode_testbed'
-require 'send_testbed'
-require 'send_table_testbed'
-require 'bind_table_testbed'
-require 'code_gen_testbed'
-require 'if_code_gen_testbed'
-require 'lambda_table_testbed'
 
 require 'benchmark/ips'
 

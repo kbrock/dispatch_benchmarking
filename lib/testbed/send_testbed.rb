@@ -1,13 +1,7 @@
-class HardcodeTestbed < TestBed
+class SendTestbed < Base
   def call(event)
-    case event.name
-    when :foo
-      handle_foo(event)
-    when :bar
-      handle_bar(event)
-    when :baz
-      handle_baz(event)
-    end
+    handler_name = "handle_#{event.name}"
+    __send__(handler_name, event) if respond_to?(handler_name)
   end
 
   def handle_foo(event)
