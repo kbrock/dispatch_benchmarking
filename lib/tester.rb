@@ -6,6 +6,7 @@ require 'send_table_testbed'
 require 'bind_table_testbed'
 require 'code_gen_testbed'
 require 'if_code_gen_testbed'
+require 'lambda_table_testbed'
 
 require 'benchmark/ips'
 
@@ -18,6 +19,7 @@ class Tester
         BindTableTestbed,
         CodeGenTestbed,
         IfCodeGenTestbed,
+        LambdaTableTestbed,
     ]
 
     puts "ruby: #{RUBY_VERSION}"

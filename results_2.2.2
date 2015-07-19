@@ -1,24 +1,28 @@
 ruby: 2.2.2
 
 Calculating -------------------------------------
-     HardcodeTestbed    47.557k i/100ms
-         SendTestbed    27.232k i/100ms
-    SendTableTestbed    38.494k i/100ms
-    BindTableTestbed    23.044k i/100ms
-      CodeGenTestbed    46.891k i/100ms
-    IfCodeGenTestbed    40.784k i/100ms
+     HardcodeTestbed    46.020k i/100ms
+         SendTestbed    26.281k i/100ms
+    SendTableTestbed    37.722k i/100ms
+    BindTableTestbed    22.909k i/100ms
+      CodeGenTestbed    45.820k i/100ms
+    IfCodeGenTestbed    41.648k i/100ms
+  LambdaTableTestbed    37.872k i/100ms
 -------------------------------------------------
-     HardcodeTestbed    600.807k (± 5.6%) i/s -      2.996M
-         SendTestbed    302.700k (± 6.7%) i/s -      1.525M
-    SendTableTestbed    464.889k (± 5.2%) i/s -      2.348M
-    BindTableTestbed    265.872k (± 3.9%) i/s -      1.337M
-      CodeGenTestbed    645.551k (± 4.0%) i/s -      3.235M
-    IfCodeGenTestbed    566.322k (± 2.7%) i/s -      2.855M
+     HardcodeTestbed    655.728k (± 2.7%) i/s -      3.313M
+         SendTestbed    322.260k (± 2.5%) i/s -      1.629M
+    SendTableTestbed    505.464k (± 3.0%) i/s -      2.527M
+    BindTableTestbed    264.811k (± 3.9%) i/s -      1.329M
+      CodeGenTestbed    607.975k (± 8.0%) i/s -      3.024M
+    IfCodeGenTestbed    529.128k (± 4.1%) i/s -      2.665M
+  LambdaTableTestbed    457.260k (± 3.9%) i/s -      2.310M
 
 Comparison:
-      CodeGenTestbed:   645551.4 i/s
-     HardcodeTestbed:   600807.2 i/s - 1.07x slower
-    IfCodeGenTestbed:   566322.4 i/s - 1.14x slower
-    SendTableTestbed:   464889.4 i/s - 1.39x slower
-         SendTestbed:   302700.4 i/s - 2.13x slower
-    BindTableTestbed:   265872.1 i/s - 2.43x slower
+     HardcodeTestbed:   655728.1 i/s
+      CodeGenTestbed:   607975.1 i/s - 1.08x slower
+    IfCodeGenTestbed:   529128.3 i/s - 1.24x slower
+    SendTableTestbed:   505464.1 i/s - 1.30x slower
+  LambdaTableTestbed:   457259.7 i/s - 1.43x slower
+         SendTestbed:   322259.7 i/s - 2.03x slower
+    BindTableTestbed:   264810.6 i/s - 2.48x slower
+
