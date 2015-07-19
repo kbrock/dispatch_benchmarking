@@ -1,0 +1,24 @@
+ruby: 2.2.2
+
+Calculating -------------------------------------
+     HardcodeTestbed    47.557k i/100ms
+         SendTestbed    27.232k i/100ms
+    SendTableTestbed    38.494k i/100ms
+    BindTableTestbed    23.044k i/100ms
+      CodeGenTestbed    46.891k i/100ms
+    IfCodeGenTestbed    40.784k i/100ms
+-------------------------------------------------
+     HardcodeTestbed    600.807k (± 5.6%) i/s -      2.996M
+         SendTestbed    302.700k (± 6.7%) i/s -      1.525M
+    SendTableTestbed    464.889k (± 5.2%) i/s -      2.348M
+    BindTableTestbed    265.872k (± 3.9%) i/s -      1.337M
+      CodeGenTestbed    645.551k (± 4.0%) i/s -      3.235M
+    IfCodeGenTestbed    566.322k (± 2.7%) i/s -      2.855M
+
+Comparison:
+      CodeGenTestbed:   645551.4 i/s
+     HardcodeTestbed:   600807.2 i/s - 1.07x slower
+    IfCodeGenTestbed:   566322.4 i/s - 1.14x slower
+    SendTableTestbed:   464889.4 i/s - 1.39x slower
+         SendTestbed:   302700.4 i/s - 2.13x slower
+    BindTableTestbed:   265872.1 i/s - 2.43x slower
