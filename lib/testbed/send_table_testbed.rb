@@ -1,17 +1,14 @@
 class SendTableTestbed < Base
+  @@handler_methods ||= {}
   def self.method_added(method_name)
     if method_name.to_s =~ /\Ahandle_(.+)\z/
-      handler_methods[$1.to_sym] = method_name.to_sym
+      @@handler_methods[$1.to_sym] = method_name.to_sym
     end
     super
   end
 
-  def self.handler_methods
-    @handler_methods ||= {}
-  end
-
   def call(event)
-    if (handler_method = self.class.handler_methods[event.name])
+    if (handler_method = @@handler_methods[event.name])
       __send__(handler_method, event)
     end
   end
