@@ -4,6 +4,11 @@ require 'testbed'
 require 'benchmark/ips'
 
 class Tester
+  E1 = Event[:foo]
+  E2 = Event[:bar]
+  E3 = Event[:baz]
+  BZ = Event[:buz]
+
   def benchmark
     classes = [
         HardcodeTestbed,
@@ -20,19 +25,23 @@ class Tester
 
     Benchmark.ips do |x|
       classes.each do |klass|
-        x.report(klass.name) { do_test(klass) }
+        x.report(klass.name) { |times| do_test(klass, times) }
       end
       x.compare!
     end
   end
 
-  def do_test(klass)
+  def do_test(klass, times)
     testbed = klass.new
-    testbed.call(e1 = Event[:foo])
-    testbed.call(e2 = Event[:bar])
-    testbed.call(e3 = Event[:baz])
-    testbed.call(Event[:buz])
-    unless testbed.event_log == [e1, e2, e3]
+    i = times
+    while i > 0
+      testbed.call(E1)
+      testbed.call(E2)
+      testbed.call(E3)
+      testbed.call(BZ)
+      i -= 1
+    end
+    unless testbed.event_log == E3
       raise "#{klass}: #{testbed.event_log.inspect}"
     end
   end
